@@ -17,7 +17,7 @@ setup(
     packages=find_packages(),
     entry_points={
         "console_scripts": [
-            "giig = giig.main:main"
+            "giig = giig.main:cli"
         ]
     },
     classifiers=[
