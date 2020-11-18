@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 
 setup(
-    name='giig',
+    name='giigd',
     version='0.0.1',
     author='Dion',
     author_email='idion@idion.dev',
