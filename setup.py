@@ -7,7 +7,9 @@ setup(
     author_email='idion@idion.dev',
     url='https://github.com/ksundong/gitignore-cli-py',
     install_requires=[
-        'click'
+        'click',
+        'fuzzywuzzy',
+        'python-Levenshtein',
     ],
     keywords=[
         'gitignore'
