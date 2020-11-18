@@ -6,9 +6,8 @@ VERSION = '0.0.1'
 
 
 @click.command()
-@click.option('-v', '--version', is_flag=True)
-@click.option('-h', '--help', is_flag=True)
-def main(version, help):
+@click.option('-v', '--version', is_flag=True, help='Show version')
+def main(version):
     if version:
         print_version()
         sys.exit()
