@@ -110,6 +110,12 @@ hs_err_pid*
 
 이 커맨드는 인자로 item들을 받아서 `.gitignore` 파일을 만들어줍니다.
 
+```shell
+giig make macos kotlin intellij
+Making... ['macos', 'kotlin', 'intellij']
+Done!! ['macos', 'kotlin', 'intellij']
+```
+
 ##### make option
 
 `-a` 로 기존 파일에 덧붙일 수 있습니다.
