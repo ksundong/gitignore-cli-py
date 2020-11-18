@@ -1,4 +1,4 @@
-# gitignore cli python
+# gitignore cli python(giig)
 
 ## milestone
 
@@ -8,3 +8,6 @@
 - 리스트 출력 기능
 - default 추가 기능
 
+## installation
+
+`python3 setup.py install`
