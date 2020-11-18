@@ -1,8 +1,11 @@
 from setuptools import setup, find_packages
 
+with open('README.md', encoding="utf-8") as f:
+    readme = f.read()
+
 setup(
     name='giigd',
-    version='0.0.1',
+    version='0.0.2',
     author='Dion',
     author_email='idion@idion.dev',
     url='https://github.com/ksundong/gitignore-cli-py',
@@ -27,4 +30,6 @@ setup(
         'License :: OSI Approved :: MIT License',
         'Operating System :: OS Independent',
     ],
+    long_description=readme,
+    long_description_content_type='text/markdown',
 )
