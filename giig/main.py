@@ -51,9 +51,17 @@ def show(items):
     click.echo(get_gitignore(items))
 
 
-@cli.command()
-def make():
-    pass
+@cli.command(help='Make .gitignore')
+@click.argument('items', nargs=-1)
+@click.option('-a', '--append', is_flag=True, help='append to .gitignore')
+def make(items, append):
+    if append:
+        file = open('.gitignore', 'a')
+    else:
+        file = open('.gitignore', 'w')
+
+    file.write(get_gitignore(items))
+    file.close()
 
 
 def get_list():
