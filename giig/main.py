@@ -16,6 +16,7 @@ FUZZY_THRESHOLD = 80
 def cli(version):
     if version:
         print_version()
+        sys.exit(0)
 
 
 def print_version():
@@ -35,8 +36,7 @@ def search(keyword):
 
     click.echo('Finding... ' + str(keyword))
 
-    search_list = sorted(','.join(get_list().split('\n')).split(','))
-    result_list = [result[0] for result in process.extract(keyword, search_list) if result[1] > FUZZY_THRESHOLD]
+    result_list = get_result_list(keyword)
 
     if len(result_list) == 0:
         click.echo('No results found')
@@ -48,6 +48,8 @@ def search(keyword):
 @cli.command(help='Show api results')
 @click.argument('items', nargs=-1)
 def show(items):
+    items = validate_items(items)
+    check_item_length(items)
     click.echo(get_gitignore(items))
 
 
@@ -60,6 +62,8 @@ def make(items, append):
     else:
         file = open('.gitignore', 'w')
 
+    items = validate_items(items)
+    check_item_length(items)
     file.write(get_gitignore(items))
     file.close()
 
@@ -70,6 +74,31 @@ def get_list():
 
 def get_gitignore(items):
     return requests.get(HOST_URL + ','.join(items)).text
+
+
+def get_result_list(keyword):
+    search_list = get_search_list()
+    return [result[0] for result in process.extract(keyword, search_list) if result[1] > FUZZY_THRESHOLD]
+
+
+def get_search_list():
+    return sorted(','.join(get_list().split('\n')).split(','))
+
+
+def validate_items(items):
+    validated_items = []
+    search_list = get_search_list()
+    for item in items:
+        if item in search_list:
+            validated_items.append(item)
+
+    return validated_items
+
+
+def check_item_length(items):
+    if len(items) == 0:
+        click.echo('Please check your input')
+        sys.exit(1)
 
 
 if __name__ == '__main__':
