@@ -7,7 +7,7 @@ from fuzzywuzzy import process
 VERSION = '0.0.1'
 # -h로도 help를 볼 수 있도록 한다.
 OPTIONS = dict(help_option_names=['-h', '--help'])
-HOST_URL = 'https://gitignore.io/api'
+HOST_URL = 'https://gitignore.io/api/'
 FUZZY_THRESHOLD = 80
 
 
@@ -45,9 +45,10 @@ def search(keyword):
     click.echo(result_list)
 
 
-@cli.command()
-def show():
-    pass
+@cli.command(help='Show api results')
+@click.argument('items', nargs=-1)
+def show(items):
+    click.echo(get_gitignore(items))
 
 
 @cli.command()
@@ -56,7 +57,11 @@ def make():
 
 
 def get_list():
-    return requests.get(HOST_URL + '/list').text
+    return requests.get(HOST_URL + 'list').text
+
+
+def get_gitignore(items):
+    return requests.get(HOST_URL + ','.join(items)).text
 
 
 if __name__ == '__main__':
