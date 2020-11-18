@@ -10,7 +10,16 @@
 
 ## installation
 
-`python3 setup.py install`
+```shell
+git clone https://github.com/ksundong/gitignore-cli-py.git
+python3 setup.py install
+```
+
+또는
+
+```shell
+pip3 install giigd
+```
 
 ## how to use
 
