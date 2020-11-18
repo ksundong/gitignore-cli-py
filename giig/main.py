@@ -15,7 +15,7 @@ def main(version, help):
 
 
 def print_version():
-    print('giig version: ' + VERSION)
+    click.echo('giig version: ' + VERSION)
 
 
 if __name__ == '__main__':
