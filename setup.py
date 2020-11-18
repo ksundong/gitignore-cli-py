@@ -5,7 +5,7 @@ with open('README.md', encoding="utf-8") as f:
 
 setup(
     name='giigd',
-    version='0.0.2',
+    version='0.0.3',
     author='Dion',
     author_email='idion@idion.dev',
     url='https://github.com/ksundong/gitignore-cli-py',
@@ -13,6 +13,7 @@ setup(
         'click',
         'fuzzywuzzy',
         'python-Levenshtein',
+        'requests',
     ],
     keywords=[
         'gitignore'

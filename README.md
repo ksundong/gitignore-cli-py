@@ -21,6 +21,12 @@ python3 setup.py install
 pip3 install giigd
 ```
 
+## update
+
+```
+pip3 install giigd --upgrade
+```
+
 ## how to use
 
 `giig [-h|--help]`로 도움말을 볼 수 있습니다.
@@ -55,9 +61,50 @@ Commands:
 
 이 커맨드는 검색 키워드(1개)를 인자로 받아 관련성이 높은 item들을 보여줍니다. 
 
+```shell
+$ giig search py
+Finding... py
+['jupyternotebooks', 'pycharm', 'pycharm+all', 'pycharm+iml', 'pydev']
+```
+
 #### show
 
 이 커맨드는 인자로 item들을 받아서 터미널에 내용을 출력해줍니다.
+
+```shell
+$ giig show java
+
+# Created by https://www.toptal.com/developers/gitignore/api/java
+# Edit at https://www.toptal.com/developers/gitignore?templates=java
+
+### Java ###
+# Compiled class file
+*.class
+
+# Log file
+*.log
+
+# BlueJ files
+*.ctxt
+
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
+
+# Package Files #
+*.jar
+*.war
+*.nar
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+hs_err_pid*
+
+# End of https://www.toptal.com/developers/gitignore/api/java
+
+```
 
 #### make
 

@@ -4,7 +4,7 @@ import click
 import requests
 from fuzzywuzzy import process
 
-VERSION = '0.0.2'
+VERSION = '0.0.3'
 # -h로도 help를 볼 수 있도록 한다.
 OPTIONS = dict(help_option_names=['-h', '--help'])
 HOST_URL = 'https://gitignore.io/api/'
