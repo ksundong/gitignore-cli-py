@@ -4,7 +4,7 @@ import click
 import requests
 from fuzzywuzzy import process
 
-VERSION = '0.0.4'
+VERSION = '0.0.5'
 # -h로도 help를 볼 수 있도록 한다.
 OPTIONS = dict(help_option_names=['-h', '--help'])
 HOST_URL = 'https://gitignore.io/api/'
@@ -23,8 +23,8 @@ def print_version():
     click.echo('giig version: ' + VERSION)
 
 
-@cli.command(help='Show a list of the ignorable items')
-def list():
+@cli.command(name='list', help='Show a list of the ignorable items')
+def list_command():
     click.echo(get_list())
 
 
@@ -87,7 +87,7 @@ def get_result_list(keyword):
 
 
 def get_search_list():
-    return sorted(','.join(get_list().split('\n')).split(','))
+    return ','.join(get_list().split('\n')).split(',')
 
 
 def validate_items(items):
