@@ -12,6 +12,7 @@
 
 ```shell
 git clone https://github.com/ksundong/gitignore-cli-py.git
+cd gitignore-cli-py
 python3 setup.py install
 ```
 
